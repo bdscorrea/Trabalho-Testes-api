@@ -3,7 +3,7 @@ let nextTodoId = 1;
 
 function create({ userId, title, status, description }) {
   if (!title) return { error: 'Título obrigatório' };
-  if (!status) return { error: 'Status obrigatório. , \n , A- ativo. I- inativo' };
+  if (!status) return { error: 'Status obrigatório. A- ativo. I- inativo' };
   const todo = { id: nextTodoId++, userId, title, status, description: description || '' };
   todos.push(todo);
   return todo;

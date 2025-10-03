@@ -2,13 +2,13 @@ const request = require('supertest');
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const app = require('../../../app');
-
 const todoService = require('../../../service/todoService');
+require('dotenv').config();
 
-describe('Teste de To-Do Rest - Controller', () => {
+
+describe('Teste de To-Do Rest - External', () => {
         beforeEach(async () => {
-            const respostaLogin = await request(app)
+            const respostaLogin = await request(process.env.BASE_URL_REST)
                     .post('/login')
                     .send({
                             username: 'teste1',
@@ -19,7 +19,7 @@ describe('Teste de To-Do Rest - Controller', () => {
         });
             
             it('Registrar um To-Do', async () => {
-            const resposta = await request(app)
+            const resposta = await request(process.env.BASE_URL_REST)
                 .post('/todos')
                 .set('authorization', `Bearer ${token}`)
                 .send({
@@ -34,7 +34,7 @@ describe('Teste de To-Do Rest - Controller', () => {
         });
 
            it('Registrar um To-Do sem o campo Titulo - 400', async () => {
-            const resposta = await request(app)
+            const resposta = await request(process.env.BASE_URL_REST)
                 .post('/todos')
                 .set('authorization', `Bearer ${token}`)
                 .send({
@@ -48,7 +48,7 @@ describe('Teste de To-Do Rest - Controller', () => {
         });
 
            it('Registrar um To-Do sem o campo Status - 400', async () => {
-            const resposta = await request(app)
+            const resposta = await request(process.env.BASE_URL_REST)
                 .post('/todos')
                 .set('authorization', `Bearer ${token}`)
                 .send({

@@ -42,7 +42,7 @@ jobs:
       
       - name: Run tests External-Rest
         run: npm run test-rest-external    
-             
+
       - name: Run tests External-GraphQL
         run: npm run test-graphql-external        
         
