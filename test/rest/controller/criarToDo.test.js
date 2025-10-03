@@ -60,4 +60,24 @@ describe('Teste de To-Do Rest - Controller', () => {
         expect(resposta.status).to.equal(400);
         expect(resposta.body).to.have.property('error', 'Status obrigatório. A- ativo. I- inativo');
         });
+
+         it('Usando Mocks: Registrar um To-Do sem o campo Status - 400', async () => {
+            const todoServiceMock = sinon.stub(todoService, 'create');
+            todoServiceMock.returns({ error: 'Status obrigatório. A- ativo. I- inativo' });
+
+            const resposta = await request(app)
+                .post('/todos')
+                .set('authorization', `Bearer ${token}`)
+                .send({
+                    title: "",
+                    status: "",
+                    description: "testando mock"
+                    });
+    
+        expect(resposta.status).to.equal(400);
+        expect(resposta.body).to.have.property('error', 'Status obrigatório. A- ativo. I- inativo');
+
+        sinon.restore();
+
+        });
 });
