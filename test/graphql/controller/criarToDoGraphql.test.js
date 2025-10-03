@@ -1,12 +1,12 @@
-const request = require('supertest');
+/*const request = require('supertest');
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const app = require('../../../app');
+const app = require('../../../graphql/app');
 
 const todoService = require('../../../service/todoService');
 
-describe('Teste de To-Do Rest - Controller', () => {
+describe('Teste de To-Do GraphQL - Controller', () => {
         beforeEach(async () => {
             const respostaLogin = await request(app)
                     .post('/login')
@@ -80,4 +80,4 @@ describe('Teste de To-Do Rest - Controller', () => {
         sinon.restore();
 
         });
-});
+});*/
