@@ -19,13 +19,13 @@ describe('Teste de To-Do Rest - Controller', () => {
         });
 
             it('Buscar To-Do', async () => {
-                const id = 1;
+            const id = 3;
             const resposta = await request(app)
                 .get(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)
                
         expect(resposta.status).to.equal(200);
-        expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO");
+        expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO 3");
         });
 
          it('Buscar To-Do inexistente - 404', async () => {
