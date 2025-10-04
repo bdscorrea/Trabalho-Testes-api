@@ -55,6 +55,6 @@ describe('Teste de Alteração To-Do Rest - External', () => {
                 .set('authorization', `Bearer ${token}`)
                    
                    
-        expect(resposta.status).to.equal(404);
+        expect(resposta.status).to.equal(404); 
          });
 });
