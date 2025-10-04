@@ -6,7 +6,7 @@ const app = require('../../../app');
 
 const todoService = require('../../../service/todoService');
 
-describe('Teste de To-Do Rest - External', () => {
+describe('Teste de Buscar To-Do Rest - External', () => {
         beforeEach(async () => {
             const respostaLogin = await request(process.env.BASE_URL_REST)
                     .post('/login')
@@ -29,7 +29,7 @@ describe('Teste de To-Do Rest - External', () => {
         });
 
          it('Buscar To-Do inexistente - 404', async () => {
-                const id = 15;
+                const id = 85;
             const resposta = await request(process.env.BASE_URL_REST)
                 .get(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)

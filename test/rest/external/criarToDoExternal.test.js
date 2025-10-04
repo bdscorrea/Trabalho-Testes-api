@@ -6,7 +6,7 @@ const todoService = require('../../../service/todoService');
 require('dotenv').config();
 
 
-describe('Teste de To-Do Rest - External', () => {
+describe('Teste de Criar To-Do Rest - External', () => {
         beforeEach(async () => {
             const respostaLogin = await request(process.env.BASE_URL_REST)
                     .post('/login')
@@ -28,8 +28,13 @@ describe('Teste de To-Do Rest - External', () => {
                     description: "testando aplicação"
                     });
     
+        const respostaEsperada = require('../fixture/respostas/retornoToDo.json');
         expect(resposta.status).to.equal(201);
-        expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO");
+        delete resposta.body.id;
+        delete respostaEsperada.id;
+        delete resposta.body.userId;
+        delete respostaEsperada.userId;
+        expect(resposta.body).to.deep.equal(respostaEsperada);
         expect(resposta.body.id).to.not.equal(null);
         });
 
