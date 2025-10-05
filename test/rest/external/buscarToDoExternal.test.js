@@ -19,13 +19,13 @@ describe('Teste de Buscar To-Do Rest - External', () => {
         });
 
             it('Buscar To-Do', async () => {
-                const id = 1;
+                const id = 3;
             const resposta = await request(process.env.BASE_URL_REST)
                 .get(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)
                
         expect(resposta.status).to.equal(200);
-        expect(resposta.body.title).to.equal("TESTANDO ALTERAÇÃO"); 
+        expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO"); 
         });
 
          it('Buscar To-Do inexistente - 404', async () => {
