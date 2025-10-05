@@ -40,7 +40,7 @@ describe('Teste de Excluir To-Do Rest - External', () => {
      });
 
                  it('Excluir um To-Do inexistente - 404', async () => {
-                const id = 98;
+                const id = 78;
                 const resposta = await request(process.env.BASE_URL_REST)
                 .delete(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)
