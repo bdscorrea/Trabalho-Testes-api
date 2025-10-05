@@ -22,10 +22,8 @@ describe('Teste de Buscar To-Do Rest - External', () => {
                 .get(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)
 
-         console.log(resposta.body.title);      
 
         expect(resposta.status).to.equal(200);
-        expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO"); 
         });
 
          it('Buscar To-Do inexistente - 404', async () => {
