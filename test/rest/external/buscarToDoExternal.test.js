@@ -2,8 +2,6 @@ const request = require('supertest');
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const app = require('../../../app');
-
 const todoService = require('../../../service/todoService');
 
 describe('Teste de Buscar To-Do Rest - External', () => {
