@@ -23,7 +23,9 @@ describe('Teste de Buscar To-Do Rest - External', () => {
             const resposta = await request(process.env.BASE_URL_REST)
                 .get(`/todos/${id}`)
                 .set('authorization', `Bearer ${token}`)
-               
+
+         console.log(resposta.body.title);      
+
         expect(resposta.status).to.equal(200);
         expect(resposta.body.title).to.equal("TESTANDO APLICAÇÃO"); 
         });
